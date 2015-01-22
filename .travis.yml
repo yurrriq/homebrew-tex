@@ -1,0 +1,31 @@
+language: objective-c
+osx_image: xcode611
+
+env:
+  matrix:
+    - RUBY_TEST_VERSION="2.0"
+    - RUBY_TEST_VERSION="Current"
+
+matrix:
+  allow_failures:
+    - env: RUBY_TEST_VERSION="Current"
+  fast_finish: true
+
+before_install:
+  - rvm use system
+  - export PATH="/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin":"$PATH"
+  - brew update
+  - brew upgrade > /dev/null
+  - ruby --version
+  - echo ls_ruby_bindir; ls "/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin"
+  - brew tap domt4/homebrew-tex
+  - brew tap caskroom/homebrew-cask
+  - brew cask install basictex
+  - export PATH="/usr/texbin":"$PATH"
+  - printenv PATH
+  - gem install mocha minitest
+  - mocha version
+script:
+  - brew test-bot $TRAVIS_COMMIT
+notifications:
+    email: false
