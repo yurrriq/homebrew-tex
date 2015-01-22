@@ -24,8 +24,8 @@ before_install:
   - brew tap domt4/homebrew-tex
   - export PATH="/usr/texbin":"$PATH"
   - printenv PATH
-  - gem install mocha minitest
-  - mocha version
+  - sudo gem install mocha minitest
+  - sudo mocha version
   - echo $PWD
   - curl -L http://mirrors.rit.edu/CTAN/systems/mac/mactex/mactex-basic.pkg -o mactex-basic.pkg
   - sudo installer -pkg mactex-basic.pkg -target /
