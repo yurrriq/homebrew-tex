@@ -20,7 +20,7 @@ before_install:
   - echo ls_ruby_bindir; ls "/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin"
   - brew tap domt4/homebrew-tex
   - brew tap caskroom/homebrew-cask
-  - brew cask install basictex
+  - brew-cask install basictex
   - export PATH="/usr/texbin":"$PATH"
   - printenv PATH
   - gem install mocha minitest
