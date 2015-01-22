@@ -25,6 +25,9 @@ before_install:
   - brew tap domt4/homebrew-tex
   - brew tap caskroom/homebrew-cask
   - brew-cask install basictex
+  - which brew
+  - which brew-cask
+  - brew --prefix
   - export PATH="/usr/texbin":"$PATH"
   - printenv PATH
   - gem install mocha minitest
