@@ -33,11 +33,7 @@ install:
   - sudo installer -pkg mactex-basic.pkg -target /
 
 script:
-  - brew audit --strict $TRAVIS_COMMIT
-  - brew uses $TRAVIS_COMMIT
-  - brew install --verbose $TRAVIS_COMMIT
-  - brew test --verbose $TRAVIS_COMMIT
-  - brew uninstall --force $TRAVIS_COMMIT
+  - brew test-bot $TRAVIS_COMMIT --no-bottle --skip-setup -d
 
 notifications:
     email: false
