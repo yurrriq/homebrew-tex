@@ -28,7 +28,7 @@ install:
   - echo $PWD
   - curl -L http://mirrors.rit.edu/CTAN/systems/mac/mactex/mactex-basic.pkg -o mactex-basic.pkg
   - sudo installer -pkg mactex-basic.pkg -target /
-  - mkdir -p $(brew --prefix)/Library/Taps/homebrew
+  - mkdir -p $(brew --prefix)/Library/Taps/domt4/
   - ln -s $PWD $(brew --prefix)/Library/Taps/domt4/
   - brew tap --repair
 
