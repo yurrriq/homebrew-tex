@@ -28,7 +28,6 @@ before_install:
 
 install:
   - sudo "/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin/gem" install mocha minitest --bindir="/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin"
-  - which mocha
   - echo $PWD
   - curl -L http://mirrors.rit.edu/CTAN/systems/mac/mactex/mactex-basic.pkg -o mactex-basic.pkg
   - sudo installer -pkg mactex-basic.pkg -target /
