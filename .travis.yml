@@ -33,7 +33,7 @@ install:
   - brew tap --repair
 
 script:
-  - brew test-bot $TRAVIS_COMMIT --no-bottle --skip-setup -d |sed -n 's/^==> //p' |sh -ex
+  - brew test-bot $TRAVIS_COMMIT --no-bottle --skip-setup -d
 
 notifications:
     email: false
