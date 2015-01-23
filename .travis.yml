@@ -33,6 +33,7 @@ install:
   - sudo installer -pkg mactex-basic.pkg -target /
 
 script:
+  - cd /usr/local
   - brew test-bot $TRAVIS_COMMIT --no-bottle --skip-setup -d
 
 notifications:
