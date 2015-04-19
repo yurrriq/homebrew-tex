@@ -33,7 +33,7 @@ install:
   - brew tap --repair
 
 script:
-  - brew test-bot $TRAVIS_COMMIT --no-bottle -d --tap=domt4/tex
+  - brew test-bot $TRAVIS_COMMIT --no-bottle -d --skip-setup --tap=domt4/tex
 
 notifications:
     email: false
