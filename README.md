@@ -1,4 +1,4 @@
-# Homebrew-tex
+# Homebrew TeX
 
 [![Build Status](https://travis-ci.org/Homebrew/homebrew-tex.svg?branch=master)](https://travis-ci.org/Homebrew/homebrew-tex)
 
