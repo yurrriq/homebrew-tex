@@ -1,40 +1,28 @@
 language: objective-c
-osx_image: xcode611
 
-env:
-  matrix:
-    - RUBY_TEST_VERSION="2.0"
-    - RUBY_TEST_VERSION="Current"
-
-matrix:
-  allow_failures:
-    - env: RUBY_TEST_VERSION="Current"
-  fast_finish: true
+cache:
+  directories:
+    - /Library/Caches/Homebrew
+    - /opt/homebrew-cask/Caskroom/
 
 before_install:
-  - rvm use system
-  - export PATH="/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin":"$PATH"
-  - printenv PATH
   - brew update
-  - brew upgrade > /dev/null
-  - ruby --version
-  - echo ls_ruby_bindir; ls "/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin"
-  - which brew
-  - export PATH="/usr/texbin":"$PATH"
-  - printenv PATH
+  - brew install caskroom/cask/brew-cask
+  - sudo brew cask install basictex
+  - export PATH="$PATH:/usr/texbin"
 
 install:
-  - sudo "/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin/gem" install mocha minitest --bindir="/System/Library/Frameworks/Ruby.framework/Versions/${RUBY_TEST_VERSION}/usr/bin"
-  - echo $PWD
-  - curl -L http://mirrors.rit.edu/CTAN/systems/mac/mactex/mactex-basic.pkg -o mactex-basic.pkg
-  - sudo installer -pkg mactex-basic.pkg -target /
   - mkdir -p $(brew --prefix)/Library/Taps/domt4/
   - ln -s $PWD $(brew --prefix)/Library/Taps/domt4/
   - brew tap --repair
 
 script:
-  - brew test-bot $TRAVIS_COMMIT --no-bottle -d --skip-setup --tap=domt4/tex
+  - cd $(brew --prefix)
+  - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=domt4/tex;
+    else
+      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=domt4/tex --ci-pr;
+    fi
 
 notifications:
-    email: false
-    use_notice: true
+  email: false
