@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Homebrew/homebrew-tex.svg?branch=master)](https://travis-ci.org/Homebrew/homebrew-tex)
 
+[![](http://imgs.xkcd.com/comics/file_extensions.png)](https://xkcd.com/1301/)
+
 These Formulae have a hard requirement on [Tex](https://www.tug.org/mactex/).
 
 ## How do I install these formulae?
