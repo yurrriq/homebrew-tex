@@ -12,16 +12,16 @@ before_install:
   - export PATH="$PATH:/usr/texbin"
 
 install:
-  - mkdir -p $(brew --prefix)/Library/Taps/domt4/
-  - ln -s $PWD $(brew --prefix)/Library/Taps/domt4/
+  - mkdir -p $(brew --prefix)/Library/Taps/homebrew/
+  - ln -s $PWD $(brew --prefix)/Library/Taps/homebrew/homebrew-tex
   - brew tap --repair
 
 script:
   - cd $(brew --prefix)
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=domt4/tex;
+      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=tex;
     else
-      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=domt4/tex --ci-pr;
+      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=tex --ci-pr;
     fi
 
 notifications:
