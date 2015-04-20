@@ -19,9 +19,9 @@ install:
 script:
   - cd $(brew --prefix)
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=tex;
+      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=homebrew/tex;
     else
-      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=tex --ci-pr;
+      brew test-bot $TRAVIS_COMMIT --skip-setup --tap=homebrew/tex --ci-pr;
     fi
 
 notifications:
