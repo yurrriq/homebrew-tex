@@ -9,4 +9,14 @@ class Chktex < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.tex").write <<-'EOS'.undent
+      \documentclass{article}
+      \begin{document}
+      Hello World!
+      \end{document}
+    EOS
+    system bin/"chktex", "test.tex"
+  end
 end
