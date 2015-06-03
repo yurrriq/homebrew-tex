@@ -24,7 +24,7 @@ class Lilypond < Formula
   depends_on "pango"
   depends_on "ghostscript"
   depends_on "mftrace"
-  depends_on "fontforge" => "with-x11"
+  depends_on "fontforge"
   depends_on "fondu"
   depends_on "texinfo"
 
